@@ -4,7 +4,7 @@ node {
     }
     stage('Compile-Package'){
        dif mvnHome = tool name: 'maven-3', type: 'maven'
-    sh 'mvn package'
+    sh 'mvn clean install'
     }
     
 }
