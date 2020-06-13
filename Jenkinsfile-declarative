@@ -5,6 +5,10 @@ pipeline{
             steps{
                 git 'https://github.com/tryraghu/my-app.git'
             }
+        stage("Maven Build"){
+            steps{
+                sh "mvn clean package"
+            }
         }
     }
     
