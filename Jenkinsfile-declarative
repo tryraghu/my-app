@@ -18,14 +18,14 @@ pipeline{
              }
         stage("Deploy-Dev"){
              steps{
-                withCredentials([string(credentialsId: 'deploy-dev', variable: 'web-pwd')]) {
+                
                 sh """
-                 sshpass -p "${web-pwd}" scp target/gamutkart.war saina@172.17.0.3:/srv/distro/tomcat-7/webapps/
-                 sshpass -p "${web-pwd}" ssh saina@172.17.0.3 "JAVA_HOME=/srv/distro/java-8" "/srv/distro/tomcat-7/bin/shutdown.sh"
-                 sshpass -p "${web-pwd}" ssh saina@172.17.0.3 "JAVA_HOME=/srv/distro/java-8" "/srv/distro/tomcat-7/bin/startup.sh"
+                 sshpass -p "raghu" scp target/gamutkart.war saina@172.17.0.3:/srv/distro/tomcat-7/webapps/
+                 sshpass -p "raghu" ssh saina@172.17.0.3 "JAVA_HOME=/srv/distro/java-8" "/srv/distro/tomcat-7/bin/shutdown.sh"
+                 sshpass -p "raghu" ssh saina@172.17.0.3 "JAVA_HOME=/srv/distro/java-8" "/srv/distro/tomcat-7/bin/startup.sh"
                               
                   """
-                    }
+                    
                    }
                  }
                 }
