@@ -17,7 +17,7 @@ pipeline{
         }
         stage("Deploy-Dev"){
              steps{
-             sshagent(['tomcat-new']) {
+             sshagent(['tomcat-new1']) {
                 sh """
                   scp -o StrictHostKeyChecking=no target/myweb.war saina@172.17.0.3:/srv/distro/tomcat-7/webapps/
                   ssh saina@172.17.0.3 /srv/distro/tomcat-7/bin/shutdown.sh
