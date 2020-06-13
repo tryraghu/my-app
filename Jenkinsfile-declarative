@@ -16,7 +16,6 @@ pipeline{
                 sh "mvn clean package"
         stage("Deploy-Dev"){
              steps{
-             sshagent(['tomcat-new1']) {
                 withCredentials([string(credentialsId: 'deploy-dev', variable: 'web-pwd')]) {
    
                     }
