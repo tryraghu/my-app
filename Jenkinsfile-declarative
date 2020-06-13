@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    enviroment{
+    environment{
        PATH = "/srv/distro/maven-3/bin:$PATH" 
     }
     stages{
