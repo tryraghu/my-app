@@ -16,13 +16,15 @@ pipeline{
             }
         }
         stage("Deploy-Dev"){
-           sshagent(['tomcat-new']) {
-             sh """
-                scp -o StrictHostKeyChecking=no target/myweb.war saina@172.17.0.3:/srv/distro/tomcat-7/webapps/
-                ssh saina@172.17.0.3 /srv/distro/tomcat-7/bin/shutdown.sh
-                ssh saina@172.17.0.3 /srv/distro/tomcat-7/bin/startup.sh
+             steps{
+             sshagent(['tomcat-new']) {
+                sh """
+                  scp -o StrictHostKeyChecking=no target/myweb.war saina@172.17.0.3:/srv/distro/tomcat-7/webapps/
+                  ssh saina@172.17.0.3 /srv/distro/tomcat-7/bin/shutdown.sh
+                  ssh saina@172.17.0.3 /srv/distro/tomcat-7/bin/startup.sh
              
-             """
+                 """
+           }
            }
         }
     }
